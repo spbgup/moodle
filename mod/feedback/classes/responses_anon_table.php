@@ -60,6 +60,9 @@ class mod_feedback_responses_anon_table extends mod_feedback_responses_table {
             $tablecolumns[] = 'courseid';
             $tableheaders[] = get_string('course');
         }
+		
+		$tablecolumns[] = 'timemodified';
+		$tableheaders[] = 'timemodified';
 
         $this->define_columns($tablecolumns);
         $this->define_headers($tableheaders);
@@ -72,7 +75,7 @@ class mod_feedback_responses_anon_table extends mod_feedback_responses_table {
             'anon' => FEEDBACK_ANONYMOUS_YES,
             'courseid' => $this->feedbackstructure->get_courseid()];
 
-        $fields = 'c.id, c.random_response, c.courseid';
+        $fields = 'c.id, c.random_response, c.courseid, DATE_FORMAT(from_unixtime(c.timemodified), "%Y.%m.%d %H:%i:%s") as timemodified';
         $from = '{feedback_completed} c';
         $where = 'c.anonymous_response = :anon AND c.feedback = :instance';
         if ($this->feedbackstructure->get_courseid()) {
