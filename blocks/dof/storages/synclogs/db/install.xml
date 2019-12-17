@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/deansoffice/db" VERSION="20130417" COMMENT="XMLDB file for Moodle blocks/dof/storages/sync"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="block_dof_s_synclogs" COMMENT="Логи реестра синхронизаций">
+      <FIELDS>
+        <FIELD NAME="id"            TYPE="int"  LENGTH="10"  NOTNULL="true"  UNSIGNED="true"  SEQUENCE="true"  ENUM="false" NEXT="syncid"/>
+        <FIELD NAME="syncid"        TYPE="int"  LENGTH="10"  NOTNULL="true"  UNSIGNED="true"  SEQUENCE="false" ENUM="false" PREVIOUS="id"            NEXT="executetime" COMMENT="id синхронизации"/>
+        <FIELD NAME="executetime"   TYPE="int"  LENGTH="11"  NOTNULL="false" UNSIGNED="true"  SEQUENCE="false" ENUM="false" PREVIOUS="syncid"        NEXT="operation" COMMENT="время исполнения синхронизации"/>
+        <FIELD NAME="operation"     TYPE="char" LENGTH="10"  NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="executetime"   NEXT="direct" COMMENT="последняя операция (connect, create, update, delete, unsync)"/>
+        <FIELD NAME="direct"        TYPE="char" LENGTH="8"   NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="operation"     NEXT="prevoperation" COMMENT="Направление последней синхронизации (up, down)"/> 
+        <FIELD NAME="prevoperation" TYPE="char" LENGTH="10"  NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="direct"        NEXT="error" COMMENT="предыдущая операция (connect, create, update, delete, unsync)"/>
+        <FIELD NAME="error"         TYPE="char" LENGTH="1"   NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="prevoperation" NEXT="textlog" COMMENT="ошибка синхронизации"/>
+        <FIELD NAME="textlog"       TYPE="char" LENGTH="255" NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="error"         NEXT="optlog" COMMENT="Текст лога синхронизации"/>
+        <FIELD NAME="optlog"        TYPE="text" LENGTH="big" NOTNULL="false"                  SEQUENCE="false" ENUM="false" PREVIOUS="textlog"       COMMENT="Дополнительные параметры лога синхронизации"/>	   
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="isyncid"        UNIQUE="false" FIELDS="syncid"        NEXT="iexecutetime"/>
+        <INDEX NAME="iexecutetime"   UNIQUE="false" FIELDS="executetime"   PREVIOUS="isyncid"      NEXT="idirect"/>
+        <INDEX NAME="idirect"        UNIQUE="false" FIELDS="direct"        PREVIOUS="iexecutetime" NEXT="ioperation"/>
+        <INDEX NAME="ioperation"     UNIQUE="false" FIELDS="operation"     PREVIOUS="idirect"      NEXT="iprevoperation"/>
+        <INDEX NAME="iprevoperation" UNIQUE="false" FIELDS="prevoperation" PREVIOUS="ioperation"   NEXT="ierror"/>
+        <INDEX NAME="ierror"         UNIQUE="false" FIELDS="error"         PREVIOUS="iprevoperation"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

@@ -1,0 +1,55 @@
+/** Стиль для отображения/скрытия домашнего задания
+ * 
+ */
+
+
+#hideCont
+{
+    display:none; /* Скрываем контент */
+}
+
+.Btn
+{
+    cursor:pointer;
+    outline:none; /* Скрываем рамочку, при нажатии */
+}
+
+/**
+*   Цвет нераскрывшейся ссылки 
+*/
+.red a:link
+{
+    color: red; 
+}   
+
+.red a:visited
+{
+    color: red;
+}
+
+/**
+*   Цвет раскрывшейся ссылки 
+*/
+.show a:link
+{
+    color: green;
+}
+
+.show a:visited
+{
+    color: green;
+}
+
+/** Стиль для текста
+ * 
+ */
+
+.gray
+{ 
+    color: gray; 
+}
+
+.gray_link a:hover, .gray_link a:link, .gray_link a:visited, .gray_link a:active
+{ 
+    color: gray; 
+}

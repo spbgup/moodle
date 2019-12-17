@@ -1,0 +1,71 @@
+<style type="text/css"> #menu A { color: red; } </style>
+{formbegin}
+<table>
+    <tr>
+        <td valign="top">
+            <table width="100%" border="1" >
+	            <tr>
+	                <td HEIGHT = "70px" colspan="2">
+	                    <div>{monthdesc}</div>
+	                    <p align="right">{datedesc}</p>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td height="30px">
+	                    &nbsp;{npp}&nbsp;
+	                </td>
+	                <td nowrap>
+	                    <b>{listtitle}</b>
+	                </td>
+	            </tr>
+	            <!-- BEGIN studentinfo -->
+	            <tr>
+	                <td HEIGHT = "60px" align="center">
+	                    {studentnumber}
+	                </td>
+	                <td nowrap>
+	                    {fio}
+	                </td>
+	            </tr>
+	            <!-- END studentinfo --> 
+            </table>
+        </td>
+        <td valign="top">
+            <div style="max-width: 450px; overflow-x: scroll;">
+            <table width="100%" border="1" >
+                <tr>
+                    <!-- BEGIN upper_anchor -->
+                    <td style=" border-left-style: hidden;">
+                        <div align="right"><a name=jm{anchornum}></a></div>
+                    </td>
+                    <!-- END upper_anchor -->
+                </tr>
+                <tr>
+                <!-- BEGIN monthtitle -->
+                    <td height="20px" colspan="{mcolspan}">
+                        <b>{mtitle}</b>
+                    </td>
+                <!-- END monthtitle -->
+                </tr>
+                <tr>
+                <!-- BEGIN monthdate -->
+                    <td HEIGHT = "70px" min-width="30px" NOWRAP>
+                        {datecode}
+                    </td>
+                <!-- END monthdate -->
+                </tr>
+            <!-- BEGIN student -->
+                <tr>
+                <!-- BEGIN studentgrades -->
+                    <td {color} HEIGHT = "60px" NOWRAP>
+                        {grades}
+                    </td>
+                <!-- END studentgrades -->
+                </tr>
+            <!-- END student -->
+            </table>
+            </div>
+        </td>
+    </tr>
+</table>
+{formend}

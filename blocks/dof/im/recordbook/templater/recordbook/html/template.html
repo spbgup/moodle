@@ -1,0 +1,28 @@
+<table cellpadding = "5" cellspacing="1" border="1" width="96%%" class="generaltable boxaligncenter">
+<!-- строка заголовка -->
+<tr>
+<th class="header c1" >{titledate}</th>
+<th class="header c1" width="5%">{titletime}</th>
+<th class="header c1" width="20%">{titlecourses}</th>
+<th class="header c1" width="50%">{titlehomework}</th>
+<th class="header c1" width="10%">{titletimework}</th>
+<th class="header c1" width="5%">{titleform}</th>
+<th class="header c1" width="5%">{titlegrade}</th>
+</tr>
+<!-- дни недели -->
+<!-- BEGIN first_course_string -->
+<tr bgcolor="{style}" >
+<td rowspan="{numberofcourses}" width = "50px" height = "150px" >{weekday}</td>
+</tr>
+<!-- BEGIN course_string -->
+<tr bgcolor={style}>
+<td align="center">&nbsp;{time}</td>
+<td>{course}</td>
+<td align="center">{homework}</td>
+<td align="center">{timework}</td>
+<td align="center">{form}</td>
+<td align="center">{grade}</td>
+</tr>
+<!-- END course_string -->
+<!-- END first_course_string -->
+</table>
