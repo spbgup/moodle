@@ -659,6 +659,8 @@ class assign_grading_table extends table_sql implements renderable {
                                'action'=>'grade');
             $url = new moodle_url('/mod/assign/view.php', $urlparams);
             $link = $this->output->action_link($url, $icon);
+			// Добавлена следующая строка
+            $link1 = $this->output->action_link($url, '&nbsp;Проверка ответа');
             $separator = $this->output->spacer(array(), true);
         }
         $grade = $this->display_grade($row->grade,
@@ -666,7 +668,8 @@ class assign_grading_table extends table_sql implements renderable {
                                       $row->userid,
                                       $row->timemarked);
 
-        return $link . $separator . $grade;
+			// Добавлен вывод link1
+        	return $link . $link1 . $separator . $grade;
     }
 
     /**
