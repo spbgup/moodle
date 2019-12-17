@@ -6,6 +6,7 @@ $hassidepre = $PAGE->blocks->region_has_content('side-pre', $OUTPUT);
 $hassidepost = $PAGE->blocks->region_has_content('side-post', $OUTPUT);
 $showsidepre = $hassidepre && !$PAGE->blocks->region_completely_docked('side-pre', $OUTPUT);
 $showsidepost = $hassidepost && !$PAGE->blocks->region_completely_docked('side-post', $OUTPUT);
+$showhomelink = ($PAGE->url == 'http://edu.gup.ru/') ? false : true;
 
 $custommenu = $OUTPUT->custom_menu();
 $hascustommenu = (empty($PAGE->layout_options['nocustommenu']) && !empty($custommenu));
@@ -70,11 +71,13 @@ echo $OUTPUT->doctype() ?>
 	
 <!-- start OF header -->
 		<div id="page-header" class="inner-wrap page-header-nothome">
+			<?php if ($showhomelink) echo "<a href='/' title='На главную'>";?>
 		    <?php if ($haslogo) {
                         echo "<img src='".$PAGE->theme->settings->logo."' alt='logo' id='logo' />";
                     } else { ?>
 			<img src="<?php echo $OUTPUT->pix_url('logo', 'theme')?>" id="logo">
 				<?php } ?>
+			<?php if ($showhomelink) echo "</a>";?>
 				<?php
  echo "<div id='innerrightinfo'>";
                     if (isloggedin())
