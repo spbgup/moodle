@@ -8,7 +8,7 @@
 	background: url([[pix:theme|bback]]) repeat scroll 0 0 #CCCCCC;
     border: 1px solid #DADADA;
     padding: 6px 8px;
-    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.345);
 }
 
 .block .title {
@@ -22,7 +22,7 @@
 	margin-top: 0px;
 	margin-bottom: 0px;
 	padding: 0 0;
-	color: [[setting:blockcolor]];
+	color: [[setting:headingcolor]];
 	
 	padding-left: 20px;
 	background:url([[pix:theme|universal]]) no-repeat;
@@ -134,7 +134,7 @@ color: black;
 	background: #fff;
 	border: 1px solid #DADADA;
 	border-top: 0px;
-	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.12); 
+	box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.345);
 }
 
 .block .header .block_action {

@@ -6,7 +6,7 @@ html,body {
 }
 
 html,body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* background: #f1eee7 url([[pix:theme|bkg]]) no-repeat 100% 0; */
 
@@ -49,7 +49,7 @@ a:focus {
 /*outer container around moodle content, set padding here for moodle content if necessary */
 #page-content-wrapper {
 	border-bottom: 3px solid [[setting:maincolor]];
-    border-top: 3px solid [[setting:maincolor]];
+    border-top: 3px solid [[setting:headingcolor]];
     background: rgba(255, 255, 255, 0.85);
     box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2);
 }
@@ -91,14 +91,14 @@ div.inner-wrap, #page-header.inner-wrap, #page-content.inner-wrap, #page-footer.
 
 #page-header {
 	float: none;
-	height: 120px;
+	height: 80px;
 }
 
 /*logo if any*/
 #logo {
 	float: left;
-    margin-left: 10px;
-    margin-top: 30px;
+    margin-left: 0px;
+    margin-top: 0px;
 }
 
 #innerrightinfo {
@@ -124,10 +124,10 @@ div.inner-wrap, #page-header.inner-wrap, #page-content.inner-wrap, #page-footer.
     border-right: medium none;
     float: right;
     height: 43px;
-    margin-top: 17px;
-    padding: 10px;
+    margin-top: 10px;
+    padding: 0px;
     text-align: center;
-    width: 120px;
+    width: 200px;
     font-size: 85%;
     font-weight: 300;
 }
