@@ -173,14 +173,14 @@ abstract class quiz_attempts_report extends quiz_default_report {
         }
 
         if ($table->is_downloading()) {
-            $columns[] = 'institution';
-            $headers[] = get_string('institution');
+            // $columns[] = 'institution';
+            // $headers[] = get_string('institution');
 
             $columns[] = 'department';
             $headers[] = get_string('department');
 
-            $columns[] = 'email';
-            $headers[] = get_string('email');
+            // $columns[] = 'email';
+            // $headers[] = get_string('email');
         }
     }
 
@@ -241,7 +241,7 @@ abstract class quiz_attempts_report extends quiz_default_report {
                     quiz_format_grade($quiz, $quiz->grade);
         }
 
-        if ($includefeedback && quiz_has_feedback($quiz)) {
+        if (quiz_has_feedback($quiz)) { // $includefeedback && 
             $columns[] = 'feedbacktext';
             $headers[] = get_string('feedback', 'quiz');
         }

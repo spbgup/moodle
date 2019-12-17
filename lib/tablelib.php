@@ -1533,6 +1533,10 @@ class table_spreadsheet_export_format_parent extends table_default_export_format
         $this->formatheaders =& $this->workbook->add_format();
         $this->formatheaders->set_bold(1);
         $this->formatheaders->set_align('center');
+		// Добавлено для отчета по тестам
+		$this->formatheaders->set_align('vcenter');
+		$this->formatheaders->set_text_wrap();
+		// end добавлено
         // Sending HTTP headers
         $this->workbook->send($filename);
         $this->documentstarted = true;
@@ -1541,6 +1545,29 @@ class table_spreadsheet_export_format_parent extends table_default_export_format
     function start_table($sheettitle) {
         $this->worksheet = $this->workbook->add_worksheet($sheettitle);
         $this->currentrow=0;
+		// Добавлено для отчета по тестам
+		$this->worksheet->set_column(0,0,15);
+		$this->worksheet->set_column(1,1,25);
+		$this->worksheet->set_column(2,2,21);
+		$this->worksheet->set_column(3,3,11);
+		$this->worksheet->set_column(4,4,21);
+		$this->worksheet->set_column(5,5,21);
+		$this->worksheet->set_column(6,6,14);
+		$this->worksheet->set_column(7,7,8);
+		$this->worksheet->set_column(8,8,9);
+
+		$pageMargins = new PHPExcel_Worksheet_PageMargins();
+		$pageMargins->setLeft(0.4);
+		$pageMargins->setRight(0.4);
+		$pageMargins->setTop(0.4);
+		$pageMargins->setBottom(0.4);
+		$this->worksheet->set_margins($pageMargins);
+
+		$pageSetup = new PHPExcel_Worksheet_PageSetup();
+		$pageSetup->setPaperSize(9);
+		$pageSetup->setOrientation('landscape');
+		$this->worksheet->set_page_setup($pageSetup);
+		// end добавлено
     }
 
     function output_headers($headers) {
