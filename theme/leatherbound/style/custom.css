@@ -1,0 +1,9 @@
+#page-header-wrapper{
+ margin: 0 25px;
+}
+#page-content-wrapper{
+ margin: 0 25px;
+}
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, input, textarea {
+    font-family: 'PT Sans',Arial,Helvetica,sans-serif !important;
+}

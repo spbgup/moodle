@@ -53,7 +53,7 @@ $THEME->parents = array(
 
 
 $THEME->sheets = array(
-    'core',
+    'core','custom'
 );
 
 ////////////////////////////////////////////////////
