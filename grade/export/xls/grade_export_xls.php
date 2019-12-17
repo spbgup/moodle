@@ -42,17 +42,41 @@ class grade_export_xls extends grade_export {
         // Adding the worksheet
         $myxls = $workbook->add_worksheet($strgrades);
 
+		$pageMargins = new PHPExcel_Worksheet_PageMargins();
+		$pageMargins->setLeft(0.8);
+		$pageMargins->setRight(0.3);
+		$pageMargins->setTop(0.4);
+		$pageMargins->setBottom(0.4);
+		$myxls->set_margins($pageMargins);
+
+		$pageSetup = new PHPExcel_Worksheet_PageSetup();
+		$pageSetup->setPaperSize(9);
+		$pageSetup->setOrientation('landscape');
+		$pageSetup->setColumnsToRepeatAtLeftByStartAndEnd('A');
+		$pageSetup->setRowsToRepeatAtTopByStartAndEnd('1');
+		$myxls->set_page_setup($pageSetup);
+
+		$myxls->freeze_panes('B2');
+
+		$myxls->set_column(0, 0, 40);
+		$myxls->set_column(1, 1, 30);
+
+		$myfrm = $workbook->add_format();
+		$myfrm->set_align('vcenter');
+		$myfrm->set_align('center');
+		$myfrm->set_text_wrap();
+
+
         // Print names of all the fields
         $profilefields = grade_helper::get_user_profile_fields($this->course->id, $this->usercustomfields);
-        foreach ($profilefields as $id => $field) {
-            $myxls->write_string(0, $id, $field->fullname);
-        }
-        $pos = count($profilefields);
+		$myxls->write_string(0, 0, 'Фамилия, Имя, Отчество', $myfrm);
+		$myxls->write_string(0, 1, 'Группа', $myfrm);
+		$pos = 2;
         if (!$this->onlyactive) {
-            $myxls->write_string(0, $pos++, get_string("suspended"));
+            $myxls->write_string(0, $pos++, get_string("suspended"), $myfrm);
         }
         foreach ($this->columns as $grade_item) {
-            $myxls->write_string(0, $pos++, $this->format_column_name($grade_item));
+            $myxls->write_string(0, $pos++, $this->format_column_name($grade_item), $myfrm);
 
             // Add a column_feedback column
             if ($this->export_feedback) {
@@ -70,12 +94,24 @@ class grade_export_xls extends grade_export {
         while ($userdata = $gui->next_user()) {
             $i++;
             $user = $userdata->user;
-
+			$lname = '';
+			$fname = '';
+			$group = '';
             foreach ($profilefields as $id => $field) {
                 $fieldvalue = grade_helper::get_user_field_value($user, $field);
-                $myxls->write_string($i, $id, $fieldvalue);
+				if ($field->shortname == 'firstname') {
+					$fname = $fieldvalue;
+				}
+				if ($field->shortname == 'lastname') {
+					$lname = $fieldvalue;
+				}
+				if ($field->shortname == 'department') {
+					$group = $fieldvalue;
+				}
             }
-            $j = count($profilefields);
+            $myxls->write_string($i, 0, $lname . ' ' . $fname);
+			$myxls->write_string($i, 1, $group);
+            $j = 2;
             if (!$this->onlyactive) {
                 $issuspended = ($user->suspendedenrolment) ? get_string('yes') : '';
                 $myxls->write_string($i, $j++, $issuspended);

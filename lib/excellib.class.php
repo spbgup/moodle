@@ -372,6 +372,35 @@ class MoodleExcelWorksheet {
         $this->worksheet->setShowGridlines(false);
     }
 
+/******************************************************************************************/	
+	/*
+	* Связываем с методами в библиотеке PEAR (разработчики поленились доделать)
+	*/
+
+	/*
+	* Поля
+	*/
+    function set_margins($pageMargins) {
+        $this->worksheet->setPageMargins($pageMargins);
+    }
+	
+	/*
+	* Размер и прочее
+	*/
+    function set_page_setup($pageSetup) {
+        $this->worksheet->setPageSetup($pageSetup);
+    }
+
+	/*
+	* Закрепить строки, столбцы
+	*/
+    function freeze_panes($pCell) {
+        $this->worksheet->freezePane($pCell);
+    }
+
+/******************************************************************************************/
+
+	
    /**
     * Insert an image in a worksheet.
     *
