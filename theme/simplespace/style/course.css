@@ -26,11 +26,11 @@ ul.topics, ul.weeks {
 
 /*current topic hightlight */
 .course-content .current {
-  background:#ffffee;
+  background:#ffffee !important;
  }
 
 .course-content .current .left.side {
-	color: #333;
+	color: #333 !important;
 } 
  
 .course-content .main .content {
