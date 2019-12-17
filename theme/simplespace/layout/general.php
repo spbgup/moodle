@@ -87,7 +87,7 @@ echo '<div class="contact">
  echo "<div id='innerrightinfo'>";
                     if (isloggedin())
                     {
- 			echo ''.$OUTPUT->user_picture($USER, array('size'=>55)).'';
+ 			//echo ''.$OUTPUT->user_picture($USER, array('size'=>55)).'';
  			}
  			else {
  			?>
