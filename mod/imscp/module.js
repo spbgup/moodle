@@ -98,8 +98,8 @@ M.mod_imscp.init = function(Y) {
             var headerheight = imscp_get_htmlelement_size('page-header', 'height');
             var footerheight = imscp_get_htmlelement_size('page-footer', 'height');
             var newheight = parseInt(Y.YUI2.util.Dom.getViewportHeight()) - footerheight - headerheight - 20;
-            if (newheight < 400) {
-                newheight = 400;
+            if (newheight < 1200) {
+                newheight = 1200;
             }
             imscp_layout_widget.setStyle('height', newheight+'px');
 
@@ -193,7 +193,7 @@ M.mod_imscp.init = function(Y) {
 
         imscp_layout_widget = new Y.YUI2.widget.Layout('imscp_layout', {
             minWidth: 600,
-            minHeight: 400,
+            minHeight: 1200,
             units: [
                 { position: 'left', body: 'imscp_toc', header: M.str.imscp.toc, width: 250, resize: true, gutter: '2px 5px 5px 2px', collapse: true, minWidth:150},
                 { position: 'center', body: '<div id="imscp_content"></div>', gutter: '2px 5px 5px 2px', scroll: true}
