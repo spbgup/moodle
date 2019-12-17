@@ -605,3 +605,14 @@ img.iconlarge {
 h3.name, h3.name a {
 	font-weight: normal;
 }
+
+/*Стиль для кнопки контактной информации*/
+.contact {
+	font-size: 14px;
+	line-height: 2;
+	position: absolute;
+	right: 224px;
+	text-align: center;
+	top: 30px;
+	width: 218px;
+}

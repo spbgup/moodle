@@ -78,6 +78,11 @@ echo $OUTPUT->doctype() ?>
 			<img src="<?php echo $OUTPUT->pix_url('logo', 'theme')?>" id="logo">
 				<?php } ?>
 			<?php if ($showhomelink) echo "</a>";?>
+<?php
+echo '<div class="contact">
+<a href="http://edu.gup.ru/mod/page/view.php?id=22196">Контактная информация</a>
+</div>';
+?>
 				<?php
  echo "<div id='innerrightinfo'>";
                     if (isloggedin())
