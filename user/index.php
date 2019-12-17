@@ -316,12 +316,12 @@
     $tableheaders[] = get_string('userpic');
     $tableheaders[] = get_string('fullnameuser');
 
-    if ($mode === MODE_BRIEF) {
-        foreach ($extrafields as $field) {
-            $tablecolumns[] = $field;
-            $tableheaders[] = get_user_field_name($field);
-        }
-    }
+    // if ($mode === MODE_BRIEF) {
+        // foreach ($extrafields as $field) {
+            // $tablecolumns[] = $field;
+            // $tableheaders[] = get_user_field_name($field);
+        // }
+    // }
     if ($mode === MODE_BRIEF && !isset($hiddenfields['city'])) {
         $tablecolumns[] = 'city';
         $tableheaders[] = get_string('city');
@@ -744,11 +744,11 @@
                 $data[] = $OUTPUT->user_picture($user, array('size' => 35, 'courseid'=>$course->id));
                 $data[] = $profilelink;
 
-                if ($mode === MODE_BRIEF) {
-                    foreach ($extrafields as $field) {
-                        $data[] = $user->{$field};
-                    }
-                }
+                // if ($mode === MODE_BRIEF) {
+                    // foreach ($extrafields as $field) {
+                        // $data[] = $user->{$field};
+                    // }
+                // }
                 if ($mode === MODE_BRIEF && !isset($hiddenfields['city'])) {
                     $data[] = $user->city;
                 }

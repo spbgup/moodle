@@ -203,8 +203,8 @@ class assign_grading_table extends table_sql implements renderable {
         // User picture.
         if (!$this->assignment->is_blind_marking()) {
             if (!$this->is_downloading()) {
-                $columns[] = 'picture';
-                $headers[] = get_string('pictureofuser');
+                // $columns[] = 'picture';
+                // $headers[] = get_string('pictureofuser');
             } else {
                 $columns[] = 'recordid';
                 $headers[] = get_string('recordid', 'assign');
@@ -214,10 +214,10 @@ class assign_grading_table extends table_sql implements renderable {
             $columns[] = 'fullname';
             $headers[] = get_string('fullname');
 
-            foreach ($extrauserfields as $extrafield) {
-                $columns[] = $extrafield;
-                $headers[] = get_user_field_name($extrafield);
-            }
+            // foreach ($extrauserfields as $extrafield) {
+                // $columns[] = $extrafield;
+                // $headers[] = get_user_field_name($extrafield);
+            // }
         } else {
             // Record ID.
             $columns[] = 'recordid';
@@ -252,11 +252,11 @@ class assign_grading_table extends table_sql implements renderable {
                 $headers[] = get_string('scale', 'assign');
             }
         }
-        if (!$this->is_downloading()) {
-            // We have to call this column userid so we can use userid as a default sortable column.
-            $columns[] = 'userid';
-            $headers[] = get_string('edit');
-        }
+        // if (!$this->is_downloading()) {
+            //// We have to call this column userid so we can use userid as a default sortable column.
+            // $columns[] = 'userid';
+            // $headers[] = get_string('edit');
+        // }
 
         // Submission plugins.
         if ($assignment->is_any_submission_plugin_enabled()) {
