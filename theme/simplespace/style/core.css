@@ -607,12 +607,60 @@ h3.name, h3.name a {
 }
 
 /*Стиль для кнопки контактной информации*/
-.contact {
-	font-size: 14px;
-	line-height: 2;
-	position: absolute;
-	right: 224px;
+a.contact{
+	-o-transform-origin: 46.5px 15px;
+-o-transition: background-position 0.1s cubic-bezier(0, 0, 1, 1);
+-webkit-border-bottom-left-radius: 4px;
+-webkit-border-bottom-right-radius: 4px;
+-webkit-border-radius: 4px;
+-webkit-border-top-left-radius: 4px;
+-webkit-border-top-right-radius: 4px;
+-webkit-box-shadow: rgba(255, 255, 255, 0.196) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.047) 0px 1px 2px 0px;
+-webkit-transform-origin: 46.5px 15px;
+-webkit-transition: background-position 0.1s cubic-bezier(0, 0, 1, 1);
+-webkit-transition-delay: 0;
+-webkit-transition-duration: 0.1s;
+-webkit-transition-property: background-position;
+-webkit-transition-timing-function: cubic-bezier(0, 0, 1, 1);
+align-content: stretch;
+align-items: stretch;
+align-self: stretch;
+background: #2E73AB linear-gradient(to bottom, #67A0D6, #2E5EAB) repeat-x -15px;
+border-bottom: 1px solid #B3B3B3;
+border-left: 1px solid rgba(0, 0, 0, 0.102);
+border-radius: 4px;
+border-right: 1px solid rgba(0, 0, 0, 0.102);
+border-top: 1px solid rgba(0, 0, 0, 0.102);
+box-shadow: rgba(255, 255, 255, 0.196) 0px 1px 0px 0px inset, rgba(0, 0, 0, 0.047) 0px 1px 2px 0px;
+color: #FFFFFF !important;
+cursor: pointer;
+display: inline-block;
+flex: 0 1 auto;
+flex-basis: auto;
+flex-direction: row;
+flex-flow: row;
+flex-grow: 0;
+flex-shrink: 1;
+flex-wrap: nowrap;
+font: normal normal 400 14px/18px "Open Sans";
+height: 18px;
+justify-content: flex-start;
+margin: 5px;
+padding: 4px 12px;
+resize: none;
 	text-align: center;
-	top: 30px;
-	width: 218px;
+	text-decoration: none;
+	text-shadow: none;
+	transform-origin: 46.5px 15px;
+	transition: background-position 0.1s cubic-bezier(0, 0, 1, 1);
+	vertical-align: middle;
+	position:absolute;
+	right:220px;
+	text-align:center;
+	top:24px;
+	width:190px
+}
+a.contact:hover{
+	color:#FBF8B8 !important;
+	background: #6590B1 linear-gradient(to bottom, #96B9D9, #6580AC) repeat-x -15px;
 }

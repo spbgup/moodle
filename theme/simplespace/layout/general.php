@@ -79,8 +79,8 @@ echo $OUTPUT->doctype() ?>
 				<?php } ?>
 			<?php if ($showhomelink) echo "</a>";?>
 <?php
-echo '<div class="contact">
-<a href="http://edu.gup.ru/mod/page/view.php?id=22196">Контактная информация</a>
+echo '<div>
+<a class="contact" href="http://edu.gup.ru/mod/page/view.php?id=22196">Контактная информация</a>
 </div>';
 ?>
 				<?php
