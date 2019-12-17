@@ -462,6 +462,9 @@ function cron_run() {
     // Run automated backups if required - these may take a long time to execute
     require_once($CFG->dirroot.'/backup/util/includes/backup_includes.php');
     require_once($CFG->dirroot.'/backup/util/helper/backup_cron_helper.class.php');
+	// Бэкап какого-то курса не проходит и вываливает крон 
+	// Все последующие команды не выполняются, в том числе и очистка трэш-директории
+    // Если удалили много файлов - закомментировать строку и запустить крон вручную
     backup_cron_automated_helper::run_automated_backup();
 
 
