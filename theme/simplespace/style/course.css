@@ -218,3 +218,7 @@ span.section-modchooser-link a{
     display: none;
     text-align: right;
 }
+/* Добавлено администратором */
+h3.sectionname {font-size: 15px; color: #17539C !important; font-weight: bold  !important;}
+h3.main {color: #3547AA;}
+h2.main {color: #3547AA;}
